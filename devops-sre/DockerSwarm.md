@@ -1,33 +1,32 @@
-# Notas
+# Notes
 
-### Problematica
+### Problematics
 
-Tenemos para nuestra aplicacion una infraestructura compleja, por ejemplo tenemos 
-varios microservicios que deben ser "containerized" con Docker. Es una buena opcion manejar cada
-contenedor por serparado pero de aquí surgen varios problemas relacionados con su 
-administracion y escalabilidad. 
+We have a complex app infrastructure, for example we have several microservices that be must 
+containerized with docker. This is a good option, manage each container separatelly
+but surge several problems related to its management and scalability.
 
-Dado esto, tenemos la siguiente problematica:
+Due that, we have the following problems:
 
-**Capacidad de Escalado**
-- Creacion de multiples contenedores para mejorar el tiempo de respuesta
-- Balanceadores de carga para manejar el trafico en cada grupo de contenedores
+**Scalability**
+- Creation of multiple containers to improve the response time.
+- Load balancers to improve the traffic on each set of containers
 
-**Fallos en contenedores**
-- Reiniciar los contenedores para recuperar el estado saludable de un servicio
+**Failing Containers**
+- Restart the containers to keep the healty state of a service
 
-**Fallos en nodos**
-- Redistribuir los contenedores al levantar otro nodo
-- Buscar un lugar idoneo entre nodos para poner los contenedores
-- Mantenimiento del nodo
+**Nodes Fails**
+- Re-distribute the containers to up other node.
+- Seach a ideal place between other nodes in order to put the new containers
+- Node maintenance
 
-**Comunicacion interna**
-- Conectar los contenedores dadas las subnet y los balanceadores existente
-- Escalamiento complicado en caso de creacion de varios nodos y coneccion entre ellos
+**Networking**
+- Connect the containers to subnets and load balancers
+- Complex scalability in a creation of several nodes case and the connection between them
 
-Debido a esto, se torna complejo el mantenimiento de la infraestructura para 
-una sola persona, es un trabajo engorroso y conlleva mucho tiempo, además de alta
-probabildad de fallo humano que puede afectar el funcionamiento normal de la app.
+Due that, the infrastructure manteninance is very difficult for a only person.
+It's a work could take a lot of time, and also there is a high possibility of
+human failure, that could affect the normal operation of the app
 
 
 ### Docker Swarm
@@ -38,43 +37,41 @@ probabildad de fallo humano que puede afectar el funcionamiento normal de la app
 $ docker swarm init
 ```
 
-- Crear un contenedor en Swarm
+- Crear a service in docker swarm
 
 ```
 $ docker service create --name web --publish 8080:80 ngnix 
 ```
 
-**Service**
-Es la definicion de la aplicacion que se quiere correr, ej. webserver, api, restapi...
+**Service:**
+It's the definition of the app that will run in a node, ie webserver, rest-api, graph-api...
 
-**Task**
-Es la ejecución de un servicio, que se correrá en un contenedor individual.
-Un servicio puede tener varias tareas, las tareas se corren en contenedores
+**Task:**
+It's a service instance, that will run inside a individual container.
+One service could have many tasks, the tasks run inside a container.
 
-Listar las tareas de un servicio
+- List the service tasks
 
 ```
 $ docker service ps SERVICE_NAME
 $ docker service ls # Lista los servicios de un nodo 
 ```
 
-- Crea mas replicas de las tareas del servicio
+- Create more replicas of the service tasks
 
 ```
 $ docker service update --replicas=2 SERVICE_NAME
 $ docker service scale web=4
 ```
 
-**Service Definition**
-Es la definicion del funcionamiento deseado para un servicio, que recibirá el 
-swarm manager, quien garantiza que esta definicion se mantenga independientemente
-de lo que pueda pasar a un contenedor
+**Service Definition:**
+It's the definition of the desired state for a service, that will recieve the swarm manager,
+who ensures that this definition is maintened independently of a container state.
 
-- Proceso de creacion de un servicio 
+- Process to creation of a service
 https://docs.docker.com/engine/swarm/images/service-lifecycle.png
 
-- Prueba de estres 
-
+- Stress test on a endpoint
 ```
 $ ab -n 100 -c 4 http://localhost:3000/api/endpoint/
 ```
