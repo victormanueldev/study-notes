@@ -33,14 +33,16 @@ probabildad de fallo humano que puede afectar el funcionamiento normal de la app
 ### Docker Swarm
 
 - Initialize the swarm mode on Docker
-...
+
+```
 $ docker swarm init
-...
+```
 
 - Crear un contenedor en Swarm
-...
+
+```
 $ docker service create --name web --publish 8080:80 ngnix 
-...
+```
 
 **Service**
 Es la definicion de la aplicacion que se quiere correr, ej. webserver, api, restapi...
@@ -50,16 +52,18 @@ Es la ejecución de un servicio, que se correrá en un contenedor individual.
 Un servicio puede tener varias tareas, las tareas se corren en contenedores
 
 Listar las tareas de un servicio
-...
+
+```
 $ docker service ps SERVICE_NAME
 $ docker service ls # Lista los servicios de un nodo 
-...
+```
 
 - Crea mas replicas de las tareas del servicio
-...
+
+```
 $ docker service update --replicas=2 SERVICE_NAME
 $ docker service scale web=4
-...
+```
 
 **Service Definition**
 Es la definicion del funcionamiento deseado para un servicio, que recibirá el 
@@ -70,7 +74,8 @@ de lo que pueda pasar a un contenedor
 https://docs.docker.com/engine/swarm/images/service-lifecycle.png
 
 - Prueba de estres 
-...
+
+```
 $ ab -n 100 -c 4 http://localhost:3000/api/endpoint/
-...
+```
 

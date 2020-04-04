@@ -3,6 +3,8 @@
 This plan is thinked in order to become a Fullstack Developer, and develop a project that be able to produce earings
 but principally that i can practice all the topics described in this plan.
 
+This plan is based on Node - Angular - Flutter Stack
+
 ## Topics
 
 * DevOps - SRE
