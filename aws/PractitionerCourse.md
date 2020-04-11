@@ -191,27 +191,206 @@ It can be used to manage fleet (set) of EC2 instances & VM, any piece of softwar
 on each VM, can be both inside AWS and On premise. Run commands to install, patch and uninstall 
 software and it integrates with cloud watch to gives a dashboard of the entire state.
 
-*** AWS Global AWS Services ***
+***AWS Global AWS Services***
 - IAM: Manage the users, groups, roles and policies are global.
 - Route 53: DNS AWS provider.
 - CloudFront: Global CDN
 - SNS: Simple Notification Service
 - SES: Simple Email Service
 
-*** AWS Global and Regional Services ***
+***AWS Global and Regional Services***
 - S3: Is global but we can configure it for access in a specific region
 
-*** AWS Resources to using on Premise ***
-- Snowball: Is a big hard disk for storage large files
+***AWS Resources to using on Premise***
+- Snowball: Is a gigantic hard disk for move large files and amounts of data into and out of AWS cloud
 - Snowball edge: Is a snowball but add a CPU and it's useful for run lambda functions on premise
 - Storage Gateway: It's for caching files and save them on S3 buckets
 - CodeDeploy: It's for deploy our code either be to AWS or onpremise servers
 - Opsworks: It works like beanstalk but it's used for on premise data centers.
 - IoT Greengrass: Is to connect the physical devices to AWS.
 
-- Link to AWS whitepaper and best practices
-https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf
-https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf
+- Links to AWS whitepaper and best practices
+    + https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf
+    + https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf
+
+### Pricing
+Pay as you go, Pay for what you use, pay less as you use more and pay even less
+when we reserve capacity.
+
+Fundamentals drivers of cost with AWS:
+- Compute
+- Storage
+- Data Outbound
+
+***CapExp***
+Capital Expenditure wich where we pay up front, it's a fixed and sunk cost.
+
+***OpEx***
+Operational Expenditure: which is where we pay for what we use, think of Utility billing
+such a electricity, gas, water...
+
+***Budget***
+Is used to budget (or predict) costs BEFORE we are incurred
+
+***Cost Explorer***
+Is used to explore costs AFTER we have been incurred
+
+***EC2 Billing Options***
+To determinate the price of EC2 instances, we must consider the following:
+- CLock hours of server time (Hours-seconds that server is running)
+- Instance Type (DOCTOR MC PICXZ)
+- Pricing models: 
+    + OnDemand: Allows us to pay a fixed rate by the hour (or by second) with not commitments (compromise).
+
+    + Reserved: Provide us with a capacity reservation, and offer a great discounts for hourly charge 
+    for an instance but we must accept a long term contract for one ot three years.
+
+    + Spot: Enables us to bit whatever price that we want for instance capacity, providing for even 
+    greater savings if ouw app khave a flexible starts or ends times.
+
+    + Dedicated Hosts: Physical EC2 server dedicated for our use. Dedicated host can help us 
+    reducing costs by the server-bound software licences.
+- Number of Instances
+- Load balancing (Types of LB)
+- Detailed Monitoring (Intervals of time of monitoring)
+- Auto Scaling (Instances Created)
+- Elastic IP (Time that IP is enabled)
+- Operating System (Software Licences)
+
+***Lambdas Billing***
+- Request Pricing:
+    + Free Tier: 1M requestper month
+    + $0.20 per Million requests
+- Duration Pricing:
+    + 400.000 DB-Seconds per month are free
+    + $0.00001667 per GB-Second used
+- Additional Charges:
+    + Incur in additional charges if the labda function uses other AWS services.
+
+***EBS Billing***
+- Volumes (per GB)
+- Snapshots (per GB)
+- Data transfer
+
+***S3 Billing***
+- Storage class
+- Storage
+- Request (HTTP)
+- Data Transfer
+
+***Snowball Billing***
+- Service fee per job:
+    + 50 TB = $200
+    + 80 TB = $250
+- Daily Charge:
+    + First 10 days are free, then $15 a day
+- Data Transfer:
+    + Into S3 is free but out is not
+
+***RDS Billing***
+- CLock hours of server time (Hours-seconds that server is running)
+- Database Characteristics
+- Database Purchase type (SQL Server - Oracle, etc...)
+- Number of Database instances
+- Provisioned Storage
+- Addtional Storage
+- Requests
+- Deployment Type
+- Data transfer
+- Dynamo DB:
+    + Provisioned throughput (writes)
+    + Provisioned throughput (reads)
+    + Indexed data storage
+
+***Cloudfront***
+- traffic Distribution
+- Requests
+- Data transfer out
+
+***Free Services***
+- Amazon VPC
+- Elastic Beanstalk
+- Cloud formation
+- IAM
+- Auto scaling
+- Opswroks 
+- Consolidated Billing
+
+***Support Plans***
+- Basic:
+    + Cost: FREE 
+    + Tech Suppport: -
+    + Technical Account Manager (TAM): NO 
+    + Who can open cases: None
+- Developer:
+    + Cost: $20/m
+    + Tech Suppport: Bussines hour via email
+    + Technical Account Manager (TAM): NO 
+    + Who can open cases: 1 Person/Unlimited cases
+- Business:
+    + Cost: $100/m 
+    + Tech Suppport: 24x7 email, chat & phone
+    + Technical Account Manager (TAM): NO 
+    + Who can open cases: Unlimited Contacts/Unlimited Cases
+    + System goes dowm: < 1 hour
+- Enterprise:
+    + Cost: $15.000/m
+    + Tech Suppport: Suppport: 24x7 email, chat & phone
+    + Technical Account Manager (TAM): YES!!
+    + Who can open cases: Unlimited Contacts/Unlimited Cases
+    + System goes dowm: < 15 minutes
+
+### Tags
+It's a Key value pairs attached to AWS resources. It's metadata (Data about data) and tags 
+can be inherited sometimes. 
+Resource groups make ir easy to group your resources using the tags that are assigned to them.
+We can group resourses that share one or more tags.
+
+We can apply a automations to resources that are grouped with the Resource Groups in the 
+system manager. 
+
+The Tag Editor are a global service, that allows us to discover resources and add
+to additional tags to them.
+
+***AWS Organizations***
+Is an account management service that enables us to consolidate multiple AWS Accounts into
+an organization that we create and cetrally manage.
+
+- Full Access: We create a different AWS accounts to each Org. Units and apply policies either
+to aws individual accoint or OU. A root account can not invite an other root account.
+
+***Consolidated Billing***
+We can get a consolidate billing for all our org. this group all the charges by account
+created or OU. too. We can use a paying account only for billing purposes and not for deploy resources.
+This allows us to get volume discounts on all our accounts.
+Unused Ec2 reserved instances are applied accross the group. 
+
+### Cloud Trail
+It's an auditing tool to watch what the people do in the AWS platform. It's a API call each time 
+that we deploy or use any AWS resource.
+
+It's enabled per AWS account and per region.
+We can consolidate logs in a S3 bucket and for do that are necessary:
+- Turn on ClourTrail in a Paying account.
+- Create a bucket policy that allows cross-account acess.
+- Turn on Cloud Trail in a others accounts and use the S3 bucket in the paying account. 
+
+### Quick Start
+Is a way of deploying environments quickly, using cloud formation templates, built by AWS 
+solutions architecs who are experts in a particular technology.
+
+### Landing Zones
+Is a solution that helps costumers more quickly set up a secure multi-account AWS enviromnet.
+Based on AWS Best Practices.
+
+### AWS Simple Calculator
+Is a monthly calculator used for calculate the running costs on AWS per month bases. It's not a 
+comparison tool.
+
+### AWS Tocal Calculator Ouwnership TCO
+Is used to compare costs of running our infrastructure on premise vs AWS Cloud. It will generate
+reports that we can give to our C-Level Executive to make a business case to move to the cloud.
+
 
 
 
