@@ -391,6 +391,57 @@ comparison tool.
 Is used to compare costs of running our infrastructure on premise vs AWS Cloud. It will generate
 reports that we can give to our C-Level Executive to make a business case to move to the cloud.
 
+### Artifact
+It's a service that provide a compliance documentation, a document is an artifact.
+
+***Compliance***
+AWS is tested by a lot of diffrent compliance programs like HIPAAA, ISO, PCI DSS, etc...
+https://aws.amazon.com/es/compliance/programs/
+
+
+### Shared responsability Model
+Describes what AWS is responsible of and the costumer what is responsible of, like so:
+AWS: Is responsible for security OF the cloud - Global Infrastructure
+Costumer: Is responsible for secuity IN the cloud - Data, Apps, IAM, etc...
+
+Exam Tips:
+"Visualize what the cuestion is asking you",
+"Can I, myself do this in the AWS Console or in EC2?, Encryption is a shared responsability, I must
+enable the encryption and AWS encrypt the S3 files"
+
+- Link:
+https://aws.amazon.com/es/compliance/shared-responsibility-model/
+
+### WFA & Shield
+AWS WAF is a Web Application Firewall, designed to stop hackers does XSS, SQL Injection, or any
+Web attack.
+
+Shield is a DDoS mitigation service designed to stop DDoS attacks.
+
+### AWS Inspector
+It's used for inspecting EC2 intances for vulnerabilities, this is installed inside the EC2 Instance
+and inspect the most common vulnerabilities and report when we should patch that.
+
+### AWS Trusted Advisor
+It inspects our AWS account as a whole (not just EC2). It does more than just security checks. 
+It also does Cost Optimization, Performance & Fault tolerance following the best practices.
+
+### AWS Config
+Is used to monitor configurations of our AWS Resources. Provides a detailed view of the configuration
+of AWS resources in our AWS account. This includes how the resources are related to one another 
+and how they were configured in the past, we can see how the configuration and relationships
+change over the time
+
+### Athena
+Is an interactive query service that allows us to query data located in S3 using standard SQL.
+This is serverless we pay for query or TB scanned, and is commonly used for analyse log data
+stored in S3.
+
+### Macie
+Uses AI to analyse data in S3 and helps us to identify PII or Personal Indetificable Info.
+Could be used to analyse a CloudTrail logs for suspicious API activity. Includes dashboard, 
+reports and alerts. And It's great for PCI-DSS compliance and prevent ID theft (fraud).
+
 
 
 
