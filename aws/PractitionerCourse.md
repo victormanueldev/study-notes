@@ -29,6 +29,8 @@ I consume computing resources, and only for how much I consume.
  The number of Edge Locations is greater than the number of Availability Zones, which is greater than the number of Regions.
  https://aws.amazon.com/about-aws/global-infrastructure/
 
+ A Multi-Region deployment will best ensure global availability.
+
 **Choose the right AWS Region**
 - Data Sovereignty Laws
 - Latency to end users
@@ -40,6 +42,8 @@ I consume computing resources, and only for how much I consume.
 - Developer ($29/m)
 - Bussines ($100/m) 24/7 vis phone  or chat
 - Enterprise ($15.000ñ/m) - TAM Technical Account Manager
+
+All accounts receive billing support.
 
 ### Billing Alarms
 To create a billing alarms, I have to go at CloudWatch in AWS Console, then to Billing link
@@ -442,7 +446,37 @@ Uses AI to analyse data in S3 and helps us to identify PII or Personal Indetific
 Could be used to analyse a CloudTrail logs for suspicious API activity. Includes dashboard, 
 reports and alerts. And It's great for PCI-DSS compliance and prevent ID theft (fraud).
 
+### DMS
+The AWS Database Migrations Service is the best choice for conventional data migrations. 
+- Link:  https://aws.amazon.com/dms/
+
+### Storage Gateway
+The Storage Gateway service is primarily used for attaching infrastructure located in a Data centre to the AWS Storage infrastructure. 
+You can think of a file gateway as a file system mount on S3." 
+
+### Lambda
+Lambda is the AWS Function-as-a-Service (FaaS) offering that lets you run code without provisioning or managing servers. 
+
+### Identity Federation in AWS
+With federation, you can use single sign-on (SSO) to access your AWS accounts using credentials from your corporate directory.
 
 
+## TO IMPROVE
+### Security
+- Shared responsability model
+- IAM - Policies
 
+### Technology
+- Services under AWS Categories (compute, storage, etc...)
+- Failure reporting (Personal Health Dashboard)
+- ELB
+
+### Cloud Concepts
+- CapEx - OpEpx
+- Well-Architected Framework
+
+### Pricing
+- Support plans
+- AWS Orgranizations
+- Saving plans
 
