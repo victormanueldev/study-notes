@@ -17,9 +17,9 @@ https://www.youtube.com/playlist?list=PLhSj3UTs2_yWHrFIVoEkiaiEjDHt9lZAI
 
 ### Javascript
 - Fundamentos y Practica
-https://drive.google.com/drive/folders/14jKL0tcstywfcMvtuxFwskL2Cd1jtFWx
-https://drive.google.com/drive/folders/1lUFeu6UAjZoQw_5E-ffqIkzKDaBGX905
-https://drive.google.com/drive/folders/1iV6dQ7Hft8S85Mrz2Gp2ZPZR2xo__AkF (opcional)
+1. https://drive.google.com/drive/folders/14jKL0tcstywfcMvtuxFwskL2Cd1jtFWx
+2. https://drive.google.com/drive/folders/1lUFeu6UAjZoQw_5E-ffqIkzKDaBGX905
+3. https://drive.google.com/drive/folders/1iV6dQ7Hft8S85Mrz2Gp2ZPZR2xo__AkF (opcional)
 
 ### Typescript
 - Fundamental
