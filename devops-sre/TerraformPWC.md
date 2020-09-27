@@ -1,11 +1,4 @@
-## Terraform PWC Meeting
-
-### PWC Infrastructure
-https://bitbucket.org/dapicolombia/robotinuuminfra-tf/src/pwc/
-
-### DAPI Infrastructure
-https://bitbucket.org/dapicolombia/robotinuum_infraestructure_modules/src
-https://bitbucket.org/dapicolombia/robotinuum_infraestructure_live/src
+## Terraform Meeting
 
 ### Terraform Doc
 Execute a PS script to document each terraform module, This adds a Readme en each one.
