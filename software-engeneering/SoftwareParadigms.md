@@ -1,4 +1,4 @@
-# Paradigmas en Software
+# Software Construction Paradigms
 
 
 https://www.cognodata.com/blog/principios-metodologia-agile-desarrollo-proyectos/
